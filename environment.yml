@@ -8,3 +8,6 @@ dependencies:
   - pandas
   - bqplot
   - micropip
+  # frontend components
+  - ipywidgets
+  - ipywebrtc
