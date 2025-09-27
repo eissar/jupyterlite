@@ -28,7 +28,8 @@ jobs:
 
       - name: Build the JupyterLite site
         shell: bash -l {0}
-        run: voici build --contents content --output-dir dist --apps lab
+        # --template with_msal to make it available
+        run: voici build --contents content --output-dir dist --apps lab --template with_msal
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
