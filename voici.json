@@ -1,9 +1,0 @@
-{
-    "Voila": {
-        "resources": {
-            "extra_js": [
-                "./devicesignin.js"
-            ]
-        }
-    }
-}
