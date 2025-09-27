@@ -6,7 +6,7 @@ dependencies:
   - xeus-javascript
   - xeus-python
   # voici
-  - voila-gridstack
+  # - voila-gridstack
   - pandas
   #
   - bqplot
