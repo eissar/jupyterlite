@@ -32,7 +32,8 @@ jobs:
         # run: voici build --contents content --output-dir dist --apps lab --template ./with_msal
         # then try moving the .tpl to root 
         # run: voici build --contents content --output-dir dist --apps lab --template=with_msal.tpl
-        run: voici build --contents content --output-dir dist --apps lab --template=./with_msal.tpl
+        
+        run: voici build --contents content --output-dir dist --apps lab --template with_masl
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
