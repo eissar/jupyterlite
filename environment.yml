@@ -7,5 +7,4 @@ dependencies:
   - xeus-python
   - pandas
   - bqplot
-  pip:
-    - micropip
+  - micropip
