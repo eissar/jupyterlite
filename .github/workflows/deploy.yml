@@ -29,9 +29,10 @@ jobs:
       - name: Build the JupyterLite site
         shell: bash -l {0}
         # --template with_msal to make it available
-        run: voici build --contents content --output-dir dist --apps lab --template ./with_msal
-        # then try moving the .tpl to root 
         # run: voici build --contents content --output-dir dist --apps lab --template ./with_msal
+        # then try moving the .tpl to root 
+        # run: voici build --contents content --output-dir dist --apps lab --template=with_msal.tpl
+        run: voici build --contents content --output-dir dist --apps lab --template=./with_msal.tpl
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
