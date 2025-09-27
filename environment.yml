@@ -11,8 +11,8 @@ dependencies:
   # frontend components
   - ipywidgets
   - ipywebrtc
-  - npm
-  # - npm:
-  #     - "@azure/msal-node@^2"
-  #     - "@azure/msal-common"
-  #     - jsonwebtoken                 # pulled in anyway, but explicit is fine
+  # - npm
+  - npm:
+      - "@azure/msal-node@^2"
+      - "@azure/msal-common"
+      - jsonwebtoken                 # pulled in anyway, but explicit is fine
