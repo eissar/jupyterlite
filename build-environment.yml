@@ -5,3 +5,5 @@ dependencies:
   - jupyterlite-pyodide-kernel
   - jupyterlite-xeus>=2.0.0,<3
   - voici_core>=0.7,<0.8
+
+  - ipywebrtc
