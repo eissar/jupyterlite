@@ -5,14 +5,19 @@ channels:
 dependencies:
   - xeus-javascript
   - xeus-python
+  # voici
+  - voila-gridstack
   - pandas
+  #
   - bqplot
   - micropip
   # frontend components
   - ipywidgets
   - ipywebrtc
+
   # - npm
   # - npm:
   #     - "@azure/msal-node@^2"
   #     - "@azure/msal-common"
   #     - jsonwebtoken                 # pulled in anyway, but explicit is fine
+  
