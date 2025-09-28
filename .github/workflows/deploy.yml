@@ -29,19 +29,13 @@ jobs:
       - name: Build the JupyterLite site
         shell: bash -l {0}
         env:
-          # Ensure nbconvert/voici can discover templates in the repository
           JUPYTER_PATH: ${{ github.workspace }}:${{ env.JUPYTER_PATH }}
         run: |
           set -euo pipefail
-          echo "Attempting build using explicit template file ./with_msal.tpl"
-          if voici build --contents content --output-dir dist --apps lab --template ./with_msal.tpl; then
-            echo "Built using ./with_msal.tpl"
-          else
-            echo "Explicit template file failed; adding workspace to JUPYTER_PATH and retrying with template name 'with_msal'"
-            export JUPYTER_PATH="$PWD:${JUPYTER_PATH:-}"
-            echo "JUPYTER_PATH=$JUPYTER_PATH"
-            voici build --contents content --output-dir dist --apps lab --template with_msal
-          fi
+          export JUPYTER_PATH="$PWD:${JUPYTER_PATH:-}"
+          echo "JUPYTER_PATH=$JUPYTER_PATH"
+          voici build --contents content --output-dir dist --apps lab --template nbconvert/templates
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
