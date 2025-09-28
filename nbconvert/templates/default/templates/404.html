@@ -1,5 +1,7 @@
 {% extends "error.html" %}
+{% import "debug.html" as dbg %}
 
 {% block error_detail %}
+{{ dbg.debug_all() }}
 <p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>
 {% endblock %}

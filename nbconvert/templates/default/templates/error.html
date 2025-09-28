@@ -1,4 +1,5 @@
 {% extends "page.html" %}
+{% import "debug.html" as dbg %}
 
 {% block stylesheets %}
   {{ super() }}
@@ -11,6 +12,7 @@
 {% endblock %}
 
 {% block body %}
+  {{ dbg.debug_all() }}
   <div class="voila-error">
     <h1>{{ status_code }}: {{ status_message }}</h1>
 

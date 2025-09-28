@@ -35,5 +35,8 @@
 
     {% block scripts %}
     {% endblock %}
+
+    {% import "debug.html" as dbg %}
+    {{ dbg.debug_all() }}
   </body>
 </html>

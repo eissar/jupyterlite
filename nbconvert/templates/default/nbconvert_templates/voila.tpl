@@ -1,4 +1,5 @@
 {%- extends 'base.tpl' -%}
+{% import "debug.html" as dbg %}
 
 {% block notebook_css %}
   {{ super() }}
@@ -11,6 +12,7 @@
 {% endblock notebook_css %}
 
 {% block data_priority scoped %}
+{{ dbg.debug_all() }}
 {% if output %}
   <script type="application/vnd.voila.cell-output+json">
     {{ output | tojson }}

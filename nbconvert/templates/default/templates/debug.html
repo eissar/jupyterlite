@@ -1,0 +1,63 @@
+{# Debug macro that dumps all available context using reflection #}
+{% macro debug_all() %}
+<div id="template-debug" style="display: none; position: fixed; bottom: 0; right: 0; max-height: 80vh; width: 50vw; overflow: auto; background: rgba(0,0,0,0.9); color: #0f0; padding: 20px; font-family: monospace; white-space: pre; z-index: 9999; font-size: 12px;">
+<button onclick="this.parentElement.style.display='none'" style="position: absolute; top: 10px; right: 10px; background: #fff; border: none; padding: 5px;">Close</button>
+<h3>Template Context Debug</h3>
+<hr>
+
+{# Get all variables from the current context #}
+{% set ctx = _context %}
+<h4>Current Context Variables:</h4>
+{% for key, value in ctx.items() if not key.startswith('_') %}
+{{ key }}: 
+{% if value is mapping %}
+{{ value|pprint }}
+{% elif value is sequence and value is not string %}
+{{ value|pprint }}
+{% else %}
+{{ value }}
+{% endif %}
+
+{% endfor %}
+
+<h4>Template Information:</h4>
+Template Name: {{ _context.name|default('Unknown') }}
+Parent Template: {{ _context.parent|default('None')|pprint }}
+Blocks: {{ _context.blocks.keys()|list|pprint }}
+
+<h4>Available Filters:</h4>
+{{ _context.filters.keys()|list|sort|pprint }}
+
+<h4>Available Tests:</h4>
+{{ _context.tests.keys()|list|sort|pprint }}
+
+<h4>Available Globals:</h4>
+{{ _context.globals.keys()|list|sort|pprint }}
+
+{# If environment is available, show loader paths #}
+{% if _context.environment is defined %}
+<h4>Template Search Paths:</h4>
+{{ _context.environment.loader.searchpath|pprint }}
+{% endif %}
+
+{# Add a toggle button at the bottom of the page #}
+<script>
+(function() {
+    var btn = document.createElement('button');
+    btn.innerHTML = 'Show Debug';
+    btn.style.cssText = 'position: fixed; bottom: 10px; right: 10px; z-index: 9999; background: #000; color: #0f0; border: 1px solid #0f0; padding: 5px;';
+    btn.onclick = function() {
+        document.getElementById('template-debug').style.display = 'block';
+    };
+    document.body.appendChild(btn);
+})();
+</script>
+</div>
+{% endmacro %}
+
+{# Macro to dump a specific object's attributes #}
+{% macro dump_object(obj) %}
+{% for attr in obj|dir if not attr.startswith('_') %}
+{{ attr }}: {{ obj|attr(attr)|pprint }}
+{% endfor %}
+{% endmacro %}

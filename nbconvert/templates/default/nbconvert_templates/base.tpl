@@ -1,4 +1,5 @@
 {%- extends 'nbconvert/templates/lab/index.html.j2' -%}
+{% import "debug.html" as dbg %}
 
 {%- block html_head_js -%}
 {%- endblock html_head_js -%}
@@ -9,6 +10,7 @@
 
 {%- block body_header -%}
 <body data-base-url="{{resources.base_url}}voila/" data-voila="voila">
+  {{ dbg.debug_all() }}
   <div id="rendered_cells" style="display: none">
 {%- endblock body_header -%}
 
