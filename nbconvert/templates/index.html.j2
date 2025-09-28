@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ title | default('Voici Index') }}</title>
+  </head>
+  <body>
+    <h1>{{ title | default('Voici Index') }}</h1>
+    <p>This is a minimal index template used during static builds.</p>
+    {% if items %}
+      <ul>
+      {% for item in items %}
+        <li>
+          {% if item.href %}
+            <a href="{{ item.href }}">{{ item.title | default(item.href) }}</a>
+          {% else %}
+            {{ item }}
+          {% endif %}
+        </li>
+      {% endfor %}
+      </ul>
+    {% endif %}
+  </body>
+</html>
