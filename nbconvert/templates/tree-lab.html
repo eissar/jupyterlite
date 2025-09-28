@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ title|default('Voici - Tree') }}</title>
+  </head>
+  <body>
+    <h1>{{ title|default('Voici - Tree') }}</h1>
+    <p>This is a minimal placeholder template for "tree-lab.html" used during the static build.</p>
+    {# safe link to a lab view if the exporter provides one #}
+    {% if lab_url %}
+      <p><a href="{{ lab_url }}">Open in Lab</a></p>
+    {% endif %}
+  </body>
+</html>

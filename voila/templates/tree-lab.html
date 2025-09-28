@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ title|default('Voici - Tree (Voila)') }}</title>
+  </head>
+  <body>
+    <h1>{{ title|default('Voici - Tree (Voila)') }}</h1>
+    <p>Minimal placeholder for Voici/Voila static tree output.</p>
+    {% if tree_items %}
+      <ul>
+      {% for item in tree_items %}
+        <li>{{ item }}</li>
+      {% endfor %}
+      </ul>
+    {% endif %}
+  </body>
+</html>
