@@ -34,7 +34,7 @@ jobs:
           set -euo pipefail
           export JUPYTER_PATH="$PWD:${JUPYTER_PATH:-}"
           echo "JUPYTER_PATH=$JUPYTER_PATH"
-          voici build --contents content --output-dir dist --apps lab --template nbconvert/templates
+          voici build --contents content --output-dir dist --apps lab --template nbconvert/templates/default
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
